@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Cadastro</title>
+  <style>
+    :root {
+      --fundo: #3f3f3f;
+      --cartao: #ffffff;
+      --texto: #2b2b2b;
+      --destaque: #e8601c;
+      --destaque-escuro: #c24e12;
+      --borda: #cfcfcf;
+      --raio: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 16px;
+      background: var(--fundo);
+      color: var(--texto);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    /* Formulário centralizado */
+    form {
+      width: 100%;
+      max-width: 560px;
+      background: var(--cartao);
+      padding: 32px;
+      border-radius: var(--raio);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      font-size: 1.6rem;
+      color: var(--destaque);
+      text-align: center;
+    }
+
+    /* Campos organizados */
+    .campo {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 18px;
+    }
+
+    label,
+    legend {
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--borda);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #fafafa;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* Efeito ao focar */
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--destaque);
+      box-shadow: 0 0 0 3px rgba(232, 96, 28, 0.25);
+      background: #fff;
+    }
+
+    fieldset {
+      border: none;
+      padding: 0;
+      margin: 0 0 18px;
+    }
+
+    .opcoes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+    }
+
+    .opcoes label {
+      font-weight: 400;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      accent-color: var(--destaque);
+      width: 16px;
+      height: 16px;
+    }
+
+    input[type="file"] {
+      padding: 8px;
+      border: 1px dashed var(--borda);
+      border-radius: 8px;
+      background: #fafafa;
+      font-family: inherit;
+    }
+
+    input[type="file"]:focus {
+      outline: none;
+      border-color: var(--destaque);
+      box-shadow: 0 0 0 3px rgba(232, 96, 28, 0.25);
+    }
+
+    /* Botões */
+    .botoes {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    button[type="submit"] {
+      background: var(--destaque);
+      color: #fff;
+    }
+
+    button[type="reset"] {
+      background: #e4e4e4;
+      color: var(--texto);
+    }
+
+    /* Hover nos botões */
+    button[type="submit"]:hover {
+      background: var(--destaque-escuro);
+      transform: translateY(-1px);
+    }
+
+    button[type="reset"]:hover {
+      background: #cfcfcf;
+      transform: translateY(-1px);
+    }
+
+    button:focus-visible {
+      outline: 3px solid rgba(232, 96, 28, 0.5);
+      outline-offset: 2px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 480px) {
+      form {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      .botoes {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form action="#" method="post" enctype="multipart/form-data">
+    <h1>Formulário de Cadastro</h1>
+
+    <div class="campo">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+    </div>
+
+    <div class="campo">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="voce@exemplo.com" required>
+    </div>
+
+    <div class="campo">
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" minlength="6" placeholder="Mínimo de 6 caracteres" required>
+    </div>
+
+    <div class="campo">
+      <label for="nascimento">Data de nascimento</label>
+      <input type="date" id="nascimento" name="nascimento" required>
+    </div>
+
+    <div class="campo">
+      <label for="curso">Curso</label>
+      <select id="curso" name="curso" required>
+        <option value="">Selecione um curso</option>
+        <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+        <option value="si">Sistemas de Informação</option>
+        <option value="cc">Ciência da Computação</option>
+        <option value="es">Engenharia de Software</option>
+        <option value="outro">Outro</option>
+      </select>
+    </div>
+
+    <fieldset>
+      <legend>Sexo</legend>
+      <div class="opcoes">
+        <label><input type="radio" name="sexo" value="feminino" required> Feminino</label>
+        <label><input type="radio" name="sexo" value="masculino"> Masculino</label>
+        <label><input type="radio" name="sexo" value="outro"> Outro</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Interesses</legend>
+      <div class="opcoes">
+        <label><input type="checkbox" name="interesses" value="programacao"> Programação</label>
+        <label><input type="checkbox" name="interesses" value="design"> Design</label>
+        <label><input type="checkbox" name="interesses" value="dados"> Dados</label>
+        <label><input type="checkbox" name="interesses" value="jogos"> Jogos</label>
+      </div>
+    </fieldset>
+
+    <div class="campo">
+      <label for="comentarios">Comentários</label>
+      <textarea id="comentarios" name="comentarios" placeholder="Escreva aqui..."></textarea>
+    </div>
+
+    <div class="campo">
+      <label for="foto">Upload de foto</label>
+      <input type="file" id="foto" name="foto" accept="image/*">
+    </div>
+
+    <div class="botoes">
+      <button type="submit">Enviar</button>
+      <button type="reset">Limpar</button>
+    </div>
+  </form>
+</body>
+</html>
